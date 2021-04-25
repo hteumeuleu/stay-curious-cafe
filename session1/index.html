@@ -14,7 +14,7 @@
 	<style id="css-yahoo">
 		.body, .body-div {
 			color: #fff;
-			background: url(images/stars.gif);
+			background: silver url(images/stars.gif);
 		}
 
 		.body-div {
@@ -37,6 +37,50 @@
 			background-image: url(images/email.gif);
 			background-size: cover;
 			background-repeat: no-repeat;
+		}
+
+		.figure {
+			float: right;
+			margin: 0 0 8px 8px;
+			max-width: 240px;
+			border: 8px ridge #fff;
+			padding: 8px;
+		}
+
+		.figure-slide-img {
+			vertical-align: middle;
+			background-image: url(images/checker.png);
+			background-repeat: repeat;
+		}
+
+		.figure-slide-text {
+			font-size: 10px;
+		}
+
+		.figure-input,
+		.figure-slide,
+		.figure-label > input:checked + .figure-button,
+		.figure-label > input:checked + .figure-button + * + .figure-label .figure-label .figure-button {
+			display: none;
+		}
+
+		.figure-label > input:checked + .figure-slide,
+		.figure-label > input:checked + * + .figure-slide,
+		.figure-label > input:checked + .figure-button + * + .figure-label .figure-button {
+			display: block;
+		}
+
+		.figure-button {
+			display: none;
+			width: 76px;
+			margin: 0 0 0 auto;
+			font-family: sans-serif;
+			font-size: 11px;
+			line-height: 24px;
+			text-align: center;
+			color: #222;
+			border: 4px ridge #fff;
+			background: silver;
 		}
 	</style>
 	<meta name="color-scheme" value="light" />
@@ -67,6 +111,40 @@
 					<p>
 						For this session, we’re going to have a look at <a href="https://en.wikipedia.org/wiki/Email">Wikipedia’s Email page</a>.
 					</p>
+				</div>
+				<div class="figure">
+					<label class="figure-label" for="radio-figure-1">
+						<input class="figure-input" checked="checked" type="radio" id="radio-figure-1" name="radio-figure" />
+						<div class="figure-button" role="button" style="display:none;">Next</div>
+						<div class="figure-slide">
+							<a href="https://en.wikipedia.org/wiki/File:Evolution_36_mail.png" class="figure-slide-link"><img class="figure-slide-img" src="images/Evolution_36_mail.png" alt="" width="240" /></a>
+							<p class="figure-slide-text">This screenshot shows the "Inbox" page of an email client; users can see new emails and take actions, such as reading, deleting, saving, or responding to these messages.</p>
+						</div>
+						<label class="figure-label" for="radio-figure-2">
+							<input class="figure-input" type="radio" id="radio-figure-2" name="radio-figure" />
+							<div class="figure-button" role="button">Next</div>
+							<div class="figure-slide">
+								<a href="https://en.wikipedia.org/wiki/Email#/media/File:(at).svg" class="figure-slide-link"><img class="figure-slide-img" src="images/at.png" alt="" width="240" /></a>
+								<p class="figure-slide-text">The at sign, a part of every SMTP email address[1]</p>
+							</div>
+							<label class="figure-label" for="radio-figure-3">
+								<input class="figure-input" type="radio" id="radio-figure-3" name="radio-figure" />
+								<div class="figure-button" role="button">Next</div>
+								<div class="figure-slide">
+									<a href="https://en.wikipedia.org/wiki/Email#/media/File:Email.svg" class="figure-slide-link"><img class="figure-slide-img" src="images/1280px-Email.svg.png" alt="" width="240" /></a>
+									<p class="figure-slide-text">Email operation</p>
+								</div>
+								<label class="figure-label" for="radio-figure-4">
+									<input class="figure-input" type="radio" id="radio-figure-4" name="radio-figure" />
+									<div class="figure-button" role="button">Next</div>
+									<div class="figure-slide">
+										<a href="https://en.wikipedia.org/wiki/Email#/media/File:Mozilla_Thunderbird_3.1.png" class="figure-slide-link"><img class="figure-slide-img" src="images/Mozilla_Thunderbird_3.1.png" alt="" width="240" /></a>
+										<p class="figure-slide-text">The interface of an email client, Thunderbird.</p>
+									</div>
+								</label>
+							</label>
+						</label>
+					</label>
 				</div>
 				<div class="section section-1">
 					<h2>Email</h2>
