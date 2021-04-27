@@ -1,0 +1,64 @@
+# “Email”
+
+With Mark Robbins and Rémi Parmentier
+
+Stay Curious Café
+
+05 May 2021
+
+Welcome to yet another episode of Stay Curious. This time with two guests who have a very special topic. A topic that each of us deals with every day more than once, I bet. Email is todays subject. And my two guests know one or two things about emails … what is technically and from a designers point of view possible in an email. Would you guess that it is possible to play a 3D ego shooter in an email? No? Well, join in for this show and learn about the magic email can do from Mark Robbins and Rémi Parmentier.
+
+For this session, we’re going to have a look at Wikipedia’s Email page[1].
+
+
+## Email
+
+Electronic mail (email or e-mail) is a method of exchanging messages ("mail") between people using electronic devices. Email entered limited use in the 1960s, but users could only send to users of the same computer, and some early email systems required the author and the recipient to both be online[2] simultaneously, similar to instant messaging[3]. Ray Tomlinson[4] is credited as the inventor of email; in 1971, he developed the first system able to send mail between users on different hosts across the ARPANET, using the @ sign to link the user name with a destination server. By the mid-1970s, this was the form recognized as email.
+
+Email operates across computer networks, primarily the Internet. Today's email systems are based on a store-and-forward model. Email servers accept, forward, deliver, and store messages. Neither the users nor their computers are required to be online simultaneously; they need to connect, typically to a mail server or a webmail interface to send or receive messages or download it.
+
+Originally an ASCII text-only communications medium, Internet email was extended by Multipurpose Internet Mail Extensions (MIME) to carry text in other character sets and multimedia content attachments. International email, with internationalized email addresses using UTF-8, is standardized but not widely adopted.
+
+The history of modern Internet email services reaches back to the early ARPANET, with standards for encoding email messages published as early as 1973 (RFC 561). An email message sent in the early 1970s is similar to a basic email sent today.
+
+## Terminology
+
+Historically, the term electronic mail is any electronic document transmission. For example, several writers in the early 1970s used the term to refer to fax document transmission. As a result, finding its first use is difficult with the specific meaning it has today.
+
+The term electronic mail has been in use with its current meaning since at least 1975, and variations of the shorter E-mail have been in use since at least 1979:
+
+* email is now the common form, and recommended by style guides. It is the form required by IETF Requests for Comments (RFC) and working groups. This spelling also appears in most dictionaries.
+* e-mail is the form favored in edited published American English and British English writing as reflected in the Corpus of Contemporary American English data, but is falling out of favor in some style guides.
+* EMail is a traditional form used in RFCs for the "Author's Address" and is required "for historical reasons".
+* E-mail is sometimes used, capitalizing the initial E as in similar abbreviations like E-piano, E-guitar, A-bomb, and H-bomb.
+
+In the original protocol, RFC 524, none of these forms was used. The service is simply referred to as mail, and a single piece of electronic mail is called a message.
+
+An Internet email consists of an envelope and content; the content consists of a header and a body.
+
+---
+
+[1] https://en.wikipedia.org/wiki/Email
+[2] https://en.wikipedia.org/wiki/Online_and_offline
+[3] https://en.wikipedia.org/wiki/Instant_messaging
+[4] https://en.wikipedia.org/wiki/Ray_Tomlinson
+[5] https://en.wikipedia.org/wiki/Computer_network
+[6] https://en.wikipedia.org/wiki/Internet_access
+[7] http://localhost:8888/wiki/Store-and-forward
+[8] https://en.wikipedia.org/wiki/Server_(computing)
+[9] https://en.wikipedia.org/wiki/Message_transfer_agent
+[10] https://en.wikipedia.org/wiki/Webmail
+[11] http://localhost:8888/wiki/ASCII
+[12] http://localhost:8888/wiki/Multipurpose_Internet_Mail_Extensions
+[13] http://localhost:8888/wiki/International_email
+[14] http://localhost:8888/wiki/UTF-8
+[15] http://localhost:8888/wiki/ARPANET
+[16] http://localhost:8888/wiki/Fax
+[17] http://localhost:8888/wiki/Style_guide
+[18] http://localhost:8888/wiki/IETF
+[19] http://localhost:8888/wiki/Request_for_Comments
+[20] http://localhost:8888/wiki/Corpus_of_Contemporary_American_English
+[21] http://localhost:8888/wiki/E-piano
+[22] http://localhost:8888/wiki/E-guitar
+[23] http://localhost:8888/wiki/A-bomb
+[24] http://localhost:8888/wiki/H-bomb
