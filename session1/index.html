@@ -12,66 +12,87 @@
 		}
 	</style>
 	<style id="css-yahoo">
-		.body, .body-div {
-			color: #fff;
-			background: silver url(images/stars.gif);
+		.& .body,
+		.& .body-div {
+			background: url(https://email-stay-curious.netlify.app/session1/images/stars.gif);
 		}
 
-		.body-div {
+		.& .body-div {
 			padding: 16px;
 		}
 
-		.main {
+		.& .main {
 			max-width: 640px;
 			margin: 0 auto;
 			border: 8px ridge #fff;
 			padding: 16px;
+			background: silver;
+			font-family: serif;
+			font-size: 16px;
+			line-height: normal;
 		}
 
-		.header-title {
+		.& .header-title {
 			font-size: 0;
 			margin: 0 auto;
 			width: 110px;
 			height: 120px;
 			background: 0 0/cover;
-			background-image: url(images/email.gif);
+			background-image: url(https://email-stay-curious.netlify.app/session1/images/email.gif);
 			background-size: cover;
 			background-repeat: no-repeat;
 		}
 
-		.figure {
-			float: right;
-			margin: 0 0 8px 8px;
+		@media only screen and (min-width:640px) {
+			.& .figure {
+				float: right;
+				margin-left: 8px;
+			}
+		}
+
+		.& .figure {
+			display: block !important;
+			margin-bottom: 8px;
 			max-width: 240px;
-			border: 8px ridge #fff;
+			border: 4px ridge #fff;
 			padding: 8px;
+			overflow: hidden;
+			clear: both;
 		}
 
-		.figure-slide-img {
+		.& .figure-slide-img {
 			vertical-align: middle;
-			background-image: url(images/checker.png);
+			background-image: url(https://email-stay-curious.netlify.app/session1/images/checker.png);
 			background-repeat: repeat;
+			max-width: 100%;
 		}
 
-		.figure-slide-text {
+		.& .figure-slide-link {
+			display: inline-block;
+			border: 2px solid blue;
+		}
+
+		.& .figure-slide-text {
 			font-size: 10px;
 		}
 
-		.figure-input,
-		.figure-slide,
-		.figure-label > input:checked + .figure-button,
-		.figure-label > input:checked + .figure-button + * + .figure-label .figure-label .figure-button {
+		.& .figure-input,
+		.& .figure-slide,
+		.& .figure-label > input:checked + .figure-button,
+		.& .figure-label > input:checked + .figure-button + * + .figure-label .figure-label .figure-button,
+		.& .figure-label > input:checked + * + * + * + .figure-button-first {
 			display: none;
 		}
 
-		.figure-label > input:checked + .figure-slide,
-		.figure-label > input:checked + * + .figure-slide,
-		.figure-label > input:checked + .figure-button + * + .figure-label .figure-button {
+		.& .figure-label > input:checked + .figure-slide,
+		.& .figure-label > input:checked + * + .figure-slide,
+		.& .figure-label > input:checked + .figure-button + * + .figure-label .figure-button {
 			display: block;
 		}
 
-		.figure-button {
+		.& .figure-button {
 			display: none;
+			float: right;
 			width: 76px;
 			margin: 0 0 0 auto;
 			font-family: sans-serif;
@@ -81,6 +102,11 @@
 			color: #222;
 			border: 4px ridge #fff;
 			background: silver;
+		}
+
+		.& .figure-button-first {
+			float: left;
+			display: block;
 		}
 	</style>
 	<meta name="color-scheme" value="light" />
@@ -94,7 +120,7 @@
 	</xml>
 	<![endif]-->
 </head>
-<body style="margin:0; -webkit-text-size-adjust:none; text-size-adjust:none;" class="body">
+<body style="-webkit-text-size-adjust:none; text-size-adjust:none;" class="body">
 	<div lang="en" class="body-div">
 		<div class="main">
 			<div class="header">
@@ -112,38 +138,39 @@
 						For this session, we’re going to have a look at <a href="https://en.wikipedia.org/wiki/Email">Wikipedia’s Email page</a>.
 					</p>
 				</div>
-				<div class="figure">
-					<label class="figure-label" for="radio-figure-1">
+				<div class="figure" style="display:none;">
+					<label class="figure-label">
 						<input class="figure-input" checked="checked" type="radio" id="radio-figure-1" name="radio-figure" />
 						<div class="figure-button" role="button" style="display:none;">Next</div>
 						<div class="figure-slide">
-							<a href="https://en.wikipedia.org/wiki/File:Evolution_36_mail.png" class="figure-slide-link"><img class="figure-slide-img" src="images/Evolution_36_mail.png" alt="" width="240" /></a>
+							<a href="https://en.wikipedia.org/wiki/File:Evolution_36_mail.png" class="figure-slide-link"><img class="figure-slide-img" src="https://email-stay-curious.netlify.app/session1/images/Evolution_36_mail.png" alt="" width="240" /></a>
 							<p class="figure-slide-text">This screenshot shows the "Inbox" page of an email client; users can see new emails and take actions, such as reading, deleting, saving, or responding to these messages.</p>
 						</div>
-						<label class="figure-label" for="radio-figure-2">
+						<label class="figure-label">
 							<input class="figure-input" type="radio" id="radio-figure-2" name="radio-figure" />
 							<div class="figure-button" role="button">Next</div>
 							<div class="figure-slide">
-								<a href="https://en.wikipedia.org/wiki/Email#/media/File:(at).svg" class="figure-slide-link"><img class="figure-slide-img" src="images/at.png" alt="" width="240" /></a>
+								<a href="https://en.wikipedia.org/wiki/Email#/media/File:(at).svg" class="figure-slide-link"><img class="figure-slide-img" src="https://email-stay-curious.netlify.app/session1/images/at.png" alt="" width="240" /></a>
 								<p class="figure-slide-text">The at sign, a part of every SMTP email address[1]</p>
 							</div>
-							<label class="figure-label" for="radio-figure-3">
+							<label class="figure-label">
 								<input class="figure-input" type="radio" id="radio-figure-3" name="radio-figure" />
 								<div class="figure-button" role="button">Next</div>
 								<div class="figure-slide">
-									<a href="https://en.wikipedia.org/wiki/Email#/media/File:Email.svg" class="figure-slide-link"><img class="figure-slide-img" src="images/1280px-Email.svg.png" alt="" width="240" /></a>
+									<a href="https://en.wikipedia.org/wiki/Email#/media/File:Email.svg" class="figure-slide-link"><img class="figure-slide-img" src="https://email-stay-curious.netlify.app/session1/images/1280px-Email.svg.png" alt="" width="240" /></a>
 									<p class="figure-slide-text">Email operation</p>
 								</div>
-								<label class="figure-label" for="radio-figure-4">
+								<label class="figure-label">
 									<input class="figure-input" type="radio" id="radio-figure-4" name="radio-figure" />
 									<div class="figure-button" role="button">Next</div>
 									<div class="figure-slide">
-										<a href="https://en.wikipedia.org/wiki/Email#/media/File:Mozilla_Thunderbird_3.1.png" class="figure-slide-link"><img class="figure-slide-img" src="images/Mozilla_Thunderbird_3.1.png" alt="" width="240" /></a>
+										<a href="https://en.wikipedia.org/wiki/Email#/media/File:Mozilla_Thunderbird_3.1.png" class="figure-slide-link"><img class="figure-slide-img" src="https://email-stay-curious.netlify.app/session1/images/Mozilla_Thunderbird_3.1.png" alt="" width="240" /></a>
 										<p class="figure-slide-text">The interface of an email client, Thunderbird.</p>
 									</div>
 								</label>
 							</label>
 						</label>
+						<div class="figure-button figure-button-first" role="button">Start</div>
 					</label>
 				</div>
 				<div class="section section-1">
@@ -181,27 +208,6 @@
 					<p>
 						An Internet email consists of an envelope and content;<sup id="cite_ref-21"><a href="#cite_note-21">[21]</a></sup> the content consists of a header and a body.<sup id="cite_ref-22"><a href="#cite_note-22">[22]</a></sup>
 					</p>
-				</div>
-				<div class="section section-3">
-					<h2>Origin</h2>
-				</div>
-				<div class="section section-4">
-					<h2>Operation</h2>
-				</div>
-				<div class="section section-5">
-					<h2>Message format</h2>
-				</div>
-				<div class="section section-6">
-					<h2>Servers and client applications</h2>
-				</div>
-				<div class="section section-7">
-					<h2>Types</h2>
-				</div>
-				<div class="section section-8">
-					<h2>Uses</h2>
-				</div>
-				<div class="section section-9">
-					<h2>Issues</h2>
 				</div>
 			</div>
 		</div>
