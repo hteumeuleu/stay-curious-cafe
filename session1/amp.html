@@ -1,0 +1,328 @@
+<!-- {{={< >}=}} -->
+<!doctype html>
+<html amp4email lang="en" data-css-strict>
+<head>
+  <meta charset="utf-8">
+  <script async src="https://cdn.ampproject.org/v0.js"></script>
+  <script async custom-element="amp-bind" src="https://cdn.ampproject.org/v0/amp-bind-0.1.js"></script>
+  <script async custom-element="amp-carousel" src="https://cdn.ampproject.org/v0/amp-carousel-0.1.js"></script>
+  <style amp4email-boilerplate>body{visibility:hidden}</style>
+  <style amp-custom>
+    body{font-family:arial, sans-serif}
+    .controls-top{
+      text-align:center;
+    }
+    .controls-top input[type="number"]{
+      width: 3em;
+      text-align: center;
+      padding-left: 1em;
+    }
+    .controls-top input[type="range"]{
+      display:block;
+      margin:0 auto;
+      width:80%;
+    }
+    .controls-bottom, 
+    .controls-back{
+      display:flex;
+      flex-wrap:wrap;
+      justify-content: space-evenly;
+    }
+    .controls-bottom button,
+    .controls-back button{
+      border:none;
+      border-radius:.25em;
+      font-size:inherit;
+      padding:.5em 1em;
+      margin:.5em ;
+      color: #fff;
+      background-color: #0a5958;
+    }
+    .controls-bottom button[disabled]{
+      background-color: #aaa;
+    }
+    .book{
+      position:relative;
+      height:30em;
+      transform-style: preserve-3d;
+      perspective:100em;
+      background:#ccc;
+      padding:2em;
+      font-size:clamp(.7rem, 2vmin, 2rem);
+    }
+    .page{
+      display:inline-block;
+      height:30em;
+      width:20em;
+      background:#eee;
+      background: linear-gradient(90deg, #ddd 0%, #eee 10%, #f9f9f9 100%);
+      position:absolute;
+      left:50%;
+      border-radius:0 1em 1em 0;
+      transition:transform 1s;
+      transform-origin:left;
+      transform-style: preserve-3d;
+    }
+    .page .back{
+      position: absolute;
+      top:0;
+      right:0;
+      bottom:0;
+      left:0;
+      background:#eee;
+      border-radius:1em 0 0 1em;
+      background: linear-gradient(-90deg, #ccc 0%, #ddd 1%, #eee 10%, #f9f9f9 100%);
+      transform: rotateY(180deg) translateZ(.1em);
+      box-shadow:-0.8em 0.3em 0.7em rgba(0,0,0,0.1)
+    }
+    .page:first-of-type,
+    .page:last-of-type .back{
+      text-align:center;
+      background-size:cover, 100% 100%;
+      background-position: center;
+      background-image: url(https://beyondtellerrand.com/assets/images/background-header.jpg), linear-gradient(45deg, rgba(255,255,255,0.2) 0%, #0000 40%, rgba(0,0,0,0.3) 100%);
+      background-blend-mode:overlay;
+      color:#ddd;
+      box-shadow:inset 0 0 1em rgba(0,0,0,0.4);
+    }
+    .page:last-of-type .back{
+      background-image: url(https://application-cdn.vito.community/derivations/image/thumbnail/1200/1200/eyJpZCI6ImMzNjI4OTYyN2ViM2QxNzAyZWM5MGNiZTRjYTQ2NGY2Iiwic3RvcmFnZSI6InN0b3JlIn0?signature=da5bc5531f3ea5ef95328b404d22db105ccdb673f7ec1056e98b4399eb13930e), linear-gradient(45deg, rgba(255,255,255,0.2) 0%, #0000 40%, rgba(0,0,0,0.3) 100%);
+    }
+    
+    .page.open{
+      transform:rotateY(-2deg)translateZ(.1em);
+    }
+    .page.open ~ .page{
+      transform:rotateY(-1deg)translateZ(.1em);
+    }
+    .page:not(.open){
+      transform:rotateY(-179deg)translateZ(-.1em); 
+    }
+    
+    @media screen and (max-width:28em){
+      .book{
+        height:105vw;
+      }
+      .page{
+        left:25%;
+        font-size:3.5vw;
+      }
+    }
+    .header-title{
+      font-size:5em;
+      margin-bottom:0;
+    }
+    .header-event{
+      font-size:2em;
+      margin:5.5em 0 0 0;
+    }
+    .header-date{
+      font-size:1.5em;
+      margin-top:.5em;
+    }
+    .section{
+      margin:1em;
+    }
+    .section h2 {
+      border-bottom: .1em solid currentColor;
+      font-size: 2em;
+    }
+    .section p {
+      line-height: 1.35;
+    }
+    .section a{
+      color:#0a5958;
+    }
+    .section ul{
+      margin:0;
+      padding: 0 0 0 1em;
+    }
+    .section li{
+      margin: .25em 0;
+    }
+    amp-carousel{
+      width:calc(100% - 2em);
+      margin:1em auto;
+    }
+    .amp-carousel-button {
+      top: auto;
+      bottom: -1.4em;
+      height: 3em;
+      width: 3em;
+      background-size: 80%;
+      background-color: #0a5958;
+    }
+    .amp-carousel-button-next {
+      right: 0;
+      border-radius: 3em 0 0 0;
+    }
+    .amp-carousel-button-prev {
+      left: 0;
+      border-radius: 0 3em 0 0;
+    }
+    .section li button {
+      border: none;
+      background: none;
+      font: inherit;
+      font-weight:bold;
+      color: #0a5958;
+  	}
+    
+  </style>
+</head>
+<body>
+
+  
+  <section aria-label="AMP book example" aria-live="polite">
+    <amp-state id="pagenumber">
+      <script type="application/json">1</script>
+    </amp-state>
+    <div class="controls-top">
+      Page 
+      <input type="number" value="1" min="1" max="10" [value]="pagenumber"
+             on="input-throttled:AMP.setState({ pagenumber: event.valueAsNumber })" aria-controls="book" aria-label="page number"> 
+      <input type="range" value="1" min="1" max="10" [value]="pagenumber"
+             on="input-throttled:AMP.setState({ pagenumber: event.valueAsNumber })" aria-controls="book" aria-label="page selector">
+    </div>
+    <div class="book" id="book" aria-label="AMP Book">
+      <div class="page open" [class]="(pagenumber == 1 ? 'page open' : 'page')" [aria-hidden]="(page == 1 ? 'false' : '-notrue')" [aria-selected]="(page == 1 ? 'true' : 'f-noalse')" role="group" aria-label="Page 1 of 10">
+        <div class="header">
+          <h1 class="header-title">“Email”</h1>
+          <p class="header-speakers">With Mark Robbins and Rémi Parmentier</p>
+          <p class="header-event">Stay Curious Café</p>
+          <p class="header-date">05 May 2021</p>
+        </div>
+        <div class="back"></div>
+      </div>
+      <div class="page" [class]="(pagenumber == 2 ? 'page open' : 'page')" aria-hidden="true" [aria-hidden]="(pagenumber == 2 ? 'false' : 'true')" [aria-selected]="(pagenumber == 2 ? 'true' : 'false')" role="group" aria-label="Page 2 of 10">
+        <div class="section section-0">
+          <p>
+            Welcome to yet another episode of Stay Curious. This time with two guests who have a very special topic. A topic that each of us deals with every day more than once, I bet. <b>Email</b> is todays subject. And my two guests know one or two things about emails … what is technically and from a designers point of view possible in an email. Would you guess that it is possible to play a 3D ego shooter in an email? No? Well, join in for this show and learn about the magic email can do from Mark Robbins and Rémi Parmentier.
+          </p>
+          <p>
+            For this session, we’re going to have a look at <a href="https://en.wikipedia.org/wiki/Email">Wikipedia’s Email page</a>.
+          </p>
+        </div>
+        <div class="back"></div>
+      </div>
+      <div class="page" [class]="(pagenumber == 3 ? 'page open' : 'page')" aria-hidden="true" [aria-hidden]="(pagenumber == 3 ? 'false' : 'true')" [aria-selected]="(pagenumber == 3 ? 'true' : 'false')" role="group" aria-label="Page 3 of 10">
+        <div class="figure">
+          <amp-carousel layout="fill" type="slides" loop>
+            <div class="figure-slide">
+              <a href="https://en.wikipedia.org/wiki/File:Evolution_36_mail.png" class="figure-slide-link"><amp-img class="figure-slide-img" src="https://email-stay-curious.netlify.app/session1/images/Evolution_36_mail.png" alt="" width="240" height="240" layout="responsive" /></a>
+              <p class="figure-slide-text">This screenshot shows the "Inbox" page of an email client; users can see new emails and take actions, such as reading, deleting, saving, or responding to these messages.</p>
+            </div>
+            <div class="figure-slide">
+              <a href="https://en.wikipedia.org/wiki/Email#/media/File:(at).svg" class="figure-slide-link"><amp-img class="figure-slide-img" src="https://email-stay-curious.netlify.app/session1/images/at.png" alt="" width="240" height="240" layout="responsive" /></a>
+              <p class="figure-slide-text">The at sign, a part of every SMTP email address[1]</p>
+            </div>
+            <div class="figure-slide">
+              <a href="https://en.wikipedia.org/wiki/Email#/media/File:Email.svg" class="figure-slide-link"><amp-img class="figure-slide-img" src="https://email-stay-curious.netlify.app/session1/images/1280px-Email.svg.png" alt="" width="240" height="174" layout="responsive" /></a>
+              <p class="figure-slide-text">Email operation</p>
+            </div>
+            <div class="figure-slide">
+              <a href="https://en.wikipedia.org/wiki/Email#/media/File:Mozilla_Thunderbird_3.1.png" class="figure-slide-link"><amp-img class="figure-slide-img" src="https://email-stay-curious.netlify.app/session1/images/Mozilla_Thunderbird_3.1.png" alt="" width="240" height="159" layout="responsive" /></a>
+              <p class="figure-slide-text">The interface of an email client, Thunderbird.</p>
+            </div>
+          </amp-carousel>
+        </div>
+        <div class="back"></div>
+      </div>
+      <div class="page" [class]="(pagenumber == 4 ? 'page open' : 'page')" aria-hidden="true" [aria-hidden]="(pagenumber == 4 ? 'false' : 'true')" [aria-selected]="(pagenumber == 4 ? 'true' : 'false')" role="group" aria-label="Page 4 of 10">
+        <div class="section section-1">
+          <h2>Email</h2>
+          <p>
+            <b>Electronic mail</b> (<b>email</b> or <b>e-mail</b>) is a method of exchanging messages ("mail") between people using electronic devices. Email entered limited use in the 1960s, but users could only send to users of the same computer, and some early email systems required the author and the recipient to both be <a href="https://en.wikipedia.org/wiki/Online_and_offline" title="Online and offline">online</a> simultaneously, similar to <a href="https://en.wikipedia.org/wiki/Instant_messaging" title="Instant messaging">instant messaging</a>. <a href="https://en.wikipedia.org/wiki/Ray_Tomlinson" title="Ray Tomlinson">Ray Tomlinson</a> is credited as the inventor of email; in 1971, he developed the first system able to send mail between users on different hosts across the ARPANET, using the @ sign to link the user name with a destination server. By the mid-1970s, this was the form recognized as email.
+          </p>
+        </div>
+        <div class="back"></div>
+      </div>
+      <div class="page" [class]="(pagenumber == 5 ? 'page open' : 'page')" aria-hidden="true" [aria-hidden]="(pagenumber == 5 ? 'false' : 'true')" [aria-selected]="(pagenumber == 5 ? 'true' : 'false')" role="group" aria-label="Page 5 of 10">
+        <div class="section section-1b">
+          <p>
+            Email operates across <a href="https://en.wikipedia.org/wiki/Computer_network" title="Computer network">computer networks</a>, primarily the <a href="https://en.wikipedia.org/wiki/Internet_access">Internet</a>. Today's email systems are based on a <a href="https://en.wikipedia.org/wiki/Store-and-forward" title="Store-and-forward">store-and-forward</a> model. Email <a href="https://en.wikipedia.org/wiki/Server_(computing)" title="Server (computing)">servers</a> accept, forward, deliver, and store messages. Neither the users nor their computers are required to be online simultaneously; they need to connect, typically to a <a href="https://en.wikipedia.org/wiki/Message_transfer_agent" title="Message transfer agent">mail server</a> or a <a href="https://en.wikipedia.org/wiki/Webmail" title="Webmail">webmail</a> interface to send or receive messages or download it.
+          </p>
+          <p>
+            Originally an <a href="https://en.wikipedia.org/wiki/ASCII" title="ASCII">ASCII</a> text-only communications medium, Internet email was extended by <a href="https://en.wikipedia.org/wiki/Multipurpose_Internet_Mail_Extensions" class="mw-redirect" title="Multipurpose Internet Mail Extensions">Multipurpose Internet Mail Extensions</a> (MIME) to carry text in other character sets and multimedia content attachments. <a href="https://en.wikipedia.org/wiki/International_email" title="International email">International email</a>, with internationalized email addresses using <a href="https://en.wikipedia.org/wiki/UTF-8" title="UTF-8">UTF-8</a>, is standardized but not widely adopted.<sup id="cite_ref-first_2-0"><a href="https://en.wikipedia.org/wiki/email#cite_note-first-2">[2]</a></sup>
+          </p>
+        </div>
+        <div class="back"></div>
+      </div>
+      <div class="page" [class]="(pagenumber == 6 ? 'page open' : 'page')" aria-hidden="true" [aria-hidden]="(pagenumber == 6 ? 'false' : 'true')" [aria-selected]="(pagenumber == 6 ? 'true' : 'false')" role="group" aria-label="Page 6 of 10">
+        <div class="section section-1c">
+          <p>
+            The history of modern Internet email services reaches back to the early <a href="https://en.wikipedia.org/wiki/ARPANET" title="ARPANET">ARPANET</a>, with standards for encoding email messages published as early as 1973 (RFC 561). An email message sent in the early 1970s is similar to a basic email sent today.
+          </p>
+        </div>
+        <div class="back"></div>
+      </div>
+      <div class="page" [class]="(pagenumber == 7 ? 'page open' : 'page')" aria-hidden="true" [aria-hidden]="(pagenumber == 7 ? 'false' : 'true')" [aria-selected]="(pagenumber == 7 ? 'true' : 'false')" role="group" aria-label="Page 7 of 10">
+        <div class="section section-2">
+          <h2>Terminology</h2>
+          <p>
+            Historically, the term <i>electronic mail</i> is any electronic document transmission. For example, several writers in the early 1970s used the term to refer to <a href="https://en.wikipedia.org/wiki/Fax" title="Fax">fax</a> document transmission.<sup id="cite_ref-3"><a href="https://en.wikipedia.org/wiki/email#cite_note-3">[3]</a></sup><sup id="cite_ref-4"><a href="https://en.wikipedia.org/wiki/email#cite_note-4">[4]</a></sup> As a result, finding its first use is difficult with the specific meaning it has today.
+          </p>
+          <p>
+            The term <i>electronic mail</i> has been in use with its current meaning since at least 1975, and variations of the shorter <i>E-mail</i> have been in use since at least 1979:<sup id="cite_ref-Oxford_English_Dictionary_2012_5-0"><a href="https://en.wikipedia.org/wiki/email#cite_note-Oxford_English_Dictionary_2012-5">[5]</a></sup><sup id="cite_ref-Ohlheiser_2015_6-0"><a href="https://en.wikipedia.org/wiki/email#cite_note-Ohlheiser_2015-6">[6]</a></sup>
+          </p>
+        </div>
+        <div class="back"></div>
+      </div>
+      <div class="page" [class]="(pagenumber == 8 ? 'page open' : 'page')" aria-hidden="true" [aria-hidden]="(pagenumber == 8 ? 'false' : 'true')" [aria-selected]="(pagenumber == 8 ? 'true' : 'false')" role="group" aria-label="Page 8 of 10">
+        <div class="section section-2b">
+          <ul>
+            <li><i>email</i> is now the common form, and recommended by <a href="https://en.wikipedia.org/wiki/Style_guide" title="Style guide">style guides</a>.<sup id="cite_ref-7"><a href="https://en.wikipedia.org/wiki/email#cite_note-7">[7]</a></sup><sup id="cite_ref-aces2011_8-0"><a href="https://en.wikipedia.org/wiki/email#cite_note-aces2011-8">[8]</a></sup> It is the form required by <a href="https://en.wikipedia.org/wiki/IETF" class="mw-redirect" title="IETF">IETF</a> <a href="https://en.wikipedia.org/wiki/Request_for_Comments" title="Request for Comments">Requests for Comments</a> (RFC) and working groups.<sup id="cite_ref-9"><a href="https://en.wikipedia.org/wiki/email#cite_note-9">[9]</a></sup>  This spelling also appears in most dictionaries.<sup id="cite_ref-AskOxford_Language_Query_team_10-0"><a href="https://en.wikipedia.org/wiki/email#cite_note-AskOxford_Language_Query_team-10">[10]</a></sup><sup id="cite_ref-Reference.com_11-0"><a href="https://en.wikipedia.org/wiki/email#cite_note-Reference.com-11">[11]</a></sup><sup id="cite_ref-ReferenceA_12-0"><a href="https://en.wikipedia.org/wiki/email#cite_note-ReferenceA-12">[12]</a></sup><sup id="cite_ref-ReferenceB_13-0"><a href="https://en.wikipedia.org/wiki/email#cite_note-ReferenceB-13">[13]</a></sup><sup id="cite_ref-Princeton_University_WordNet_3.0_14-0"><a href="https://en.wikipedia.org/wiki/email#cite_note-Princeton_University_WordNet_3.0-14">[14]</a></sup><sup id="cite_ref-ReferenceC_15-0"><a href="https://en.wikipedia.org/wiki/email#cite_note-ReferenceC-15">[15]</a></sup><sup id="cite_ref-Merriam-Webster_Dictionary_16-0"><a href="https://en.wikipedia.org/wiki/email#cite_note-Merriam-Webster_Dictionary-16">[16]</a></sup></li>
+            <li><i>e-mail</i> is the form favored in edited published American English and British English writing as reflected in the <a href="https://en.wikipedia.org/wiki/Corpus_of_Contemporary_American_English" title="Corpus of Contemporary American English">Corpus of Contemporary American English</a> data,<sup id="cite_ref-17"><a href="https://en.wikipedia.org/wiki/email#cite_note-17">[17]</a></sup> but is falling out of favor in some style guides.<sup id="cite_ref-aces2011_8-1"><a href="https://en.wikipedia.org/wiki/email#cite_note-aces2011-8">[8]</a></sup><sup id="cite_ref-ap_18-0"><a href="https://en.wikipedia.org/wiki/email#cite_note-ap-18">[18]</a></sup></li>
+            <li><i>EMail</i> is a traditional form used in RFCs for the "Author's Address" and is required "for historical reasons".<sup id="cite_ref-19"><a href="https://en.wikipedia.org/wiki/email#cite_note-19">[19]</a></sup></li>
+            <li><i>E-mail</i> is sometimes used, capitalizing the initial <i>E</i> as in similar abbreviations like <i><a href="https://en.wikipedia.org/wiki/E-piano" class="mw-redirect" title="E-piano">E-piano</a></i>, <i><a href="https://en.wikipedia.org/wiki/E-guitar" class="mw-redirect" title="E-guitar">E-guitar</a></i>, <i><a href="https://en.wikipedia.org/wiki/A-bomb" class="mw-redirect" title="A-bomb">A-bomb</a></i>, and <i><a href="https://en.wikipedia.org/wiki/H-bomb" class="mw-redirect" title="H-bomb">H-bomb</a></i>.<sup id="cite_ref-20"><a href="https://en.wikipedia.org/wiki/email#cite_note-20">[20]</a></sup></li>
+          </ul>
+        </div>
+        <div class="back"></div>
+      </div>
+      <div class="page" [class]="(pagenumber == 9 ? 'page open' : 'page')" aria-hidden="true" [aria-hidden]="(pagenumber == 9 ? 'false' : 'true')" [aria-selected]="(pagenumber == 9 ? 'true' : 'false')" role="group" aria-label="Page 9 of 10">
+        <div class="section section-2c">
+          <p>
+            In the original protocol, <i>RFC&nbsp;524</i>, none of these forms was used. The service is simply referred to as <i>mail</i>, and a single piece of electronic mail is called a <i>message</i>.
+          </p>
+          <p>
+            An Internet email consists of an envelope and content;<sup id="cite_ref-21"><a href="https://en.wikipedia.org/wiki/email#cite_note-21">[21]</a></sup> the content consists of a header and a body.<sup id="cite_ref-22"><a href="https://en.wikipedia.org/wiki/email#cite_note-22">[22]</a></sup>
+          </p>
+        </div>
+        <div class="back"></div>
+      </div>
+      <div class="page" [class]="(pagenumber == 10 ? 'page open' : 'page')" aria-hidden="true" [aria-hidden]="(pagenumber == 10 ? 'false' : 'true')" [aria-selected]="(pagenumber == 10 ? 'true' : 'false')" role="group" aria-label="Page 10 of 10">
+        <div class="section">
+          <h2>
+            index
+          </h2>
+          <ul>
+            <li>
+              <button on="tap:AMP.setState({ pagenumber: 2})">
+              Introduction
+              </button></li>
+            <li>
+              <button on="tap:AMP.setState({ pagenumber: 3})">
+              Figure
+              </button></li>
+            <li>
+              <button on="tap:AMP.setState({ pagenumber: 4})">
+              Email
+              </button></li>
+            <li>
+              <button on="tap:AMP.setState({ pagenumber: 7})">
+              Terminology
+              </button></li>
+          </ul>
+        </div>
+        <div class="back"></div>
+      </div>
+    </div>
+    <div class="controls-bottom">
+    <button on="tap:AMP.setState({ pagenumber: pagenumber - 1 })" disabled [disabled]="pagenumber < 2" aria-controls="book">
+      Previous page</button>
+    <button on="tap:AMP.setState({ pagenumber: pagenumber + 1 })" [disabled]="pagenumber > 10" aria-controls="book">
+      Next page</button>
+    </div>
+  </section>
+</body>
+</html>
