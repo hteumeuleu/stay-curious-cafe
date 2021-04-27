@@ -83,8 +83,11 @@
 			background: silver;
 		}
 	</style>
-  <style id="css-applemail">
+<style id="css-applemail">
 @import url('https://fonts.googleapis.com/css2?family=Monoton&family=Press+Start+2P&display=swap');
+:root{
+  font-size: max(16px, 1rem);
+}
 .Singleton body{
   margin:0;
 }
@@ -118,6 +121,7 @@
   text-transform:uppercase;
   font-weight:normal;
   font-size:3em;
+  word-break: keep-all;
 }
 .Singleton .header-title:first-letter{
   font-size:1.5em;
@@ -258,7 +262,7 @@
   border-radius: 1em;
   background: linear-gradient( hsla(0, 0%, 100%, 0.8), hsla(0, 0%, 100%, 0) );
 }
-@media screen and (max-width:34.5em){
+@media screen and (max-width:560px){
   .Singleton .header{
     border:none;
     padding:0;
@@ -297,7 +301,7 @@
     grid-row:2;
   }
 }
-@media screen and (max-width:30em){
+@media screen and (max-width:480px){
   .Singleton .sections{
     display:block;
   }
@@ -332,7 +336,7 @@
     grid-row:4;
   }
 }
-  </style>
+</style>
 	<meta name="color-scheme" value="light" />
 	<meta name="supported-color-schemes" content="light" />
 	<meta name="format-detection" content="telephone=no, date=no, address=no, email=no" />
