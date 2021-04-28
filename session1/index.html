@@ -364,12 +364,12 @@
     }
   </style>
   <style id="css-outlook-com">
-    .body,
-    .body-div {
+    [class~="x_body"],
+    [class~="x_body-div"] {
       background-color: #d1e4dd;
     }
 
-    .main {
+    [class~="x_main"] {
       max-width: 1280px;
       margin: 0 auto;
       padding: 16px;
@@ -379,66 +379,63 @@
       color: #28303d;
     }
 
-    .header-title {
-      font-weight: 300;
-      font-size: 107px;
-      line-height: 117px;
-    }
-
-    .main a {
+    [class~="x_main"] a {
       color: inherit;
     }
 
-    .header {
+    [class~="x_header"] {
       display: table;
       width: 100%;
       caption-side: bottom;
     }
 
-    .header-title {
+    [class~="x_header-title"] {
       display: table-caption;
+      font-weight: 300;
+      font-size: 107px;
+      line-height: 117px;
     }
 
-    .header-speakers,
-    .header-event,
-    .header-date {
+    [class~="x_header-speakers"],
+    [class~="x_header-event"],
+    [class~="x_header-date"] {
       display: inline-block;
       text-transform: uppercase;
     }
 
-    .header-date {
+    [class~="x_header-date"] {
       display: block;
       clear: both;
     }
 
     @media only screen and (min-width: 980px) {
-      .header-date {
+      [class~="x_header-date"] {
         float: right;
         clear: none;
       }
     }
 
-    .header-event {
+    [class~="x_header-event"] {
       float: left;
       font-weight: bold;
       margin-right: 0.33em;
     }
 
-    .section {
+    [class~="x_section"] {
       border: 3px solid #28303d;
       padding: 0 20px;
       margin-bottom: 40px;
     }
 
-    .section-0 {
+    [class~="x_section-0"] {
       background-color: #eeeadd;
     }
 
-    .section-1 {
+    [class~="x_section-1"] {
       background-color: #d1d1e4;
     }
 
-    .section-2 {
+    [class~="x_section-2"] {
       background-color: #e4d1d1;
     }
 
