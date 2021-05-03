@@ -15,6 +15,7 @@ Looking at how a single email can purposefully render differently across email p
 
 * Demo of a plain text email in Thunderbird
 * Demo of an HTML email in Thunderbird
+* [VoiceOver video demo](https://youtu.be/XLP-0uid-SY)
 
 ### Responsive and Interactive
 
