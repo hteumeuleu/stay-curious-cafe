@@ -89,15 +89,16 @@
       background-image: url(https://application-cdn.vito.community/derivations/image/thumbnail/1200/1200/eyJpZCI6ImMzNjI4OTYyN2ViM2QxNzAyZWM5MGNiZTRjYTQ2NGY2Iiwic3RvcmFnZSI6InN0b3JlIn0?signature=da5bc5531f3ea5ef95328b404d22db105ccdb673f7ec1056e98b4399eb13930e), linear-gradient(45deg, rgba(255,255,255,0.2) 0%, #0000 40%, rgba(0,0,0,0.3) 100%);
     }
     
+    .page{
+      transform:rotateY(-179deg)translateZ(-.1em); 
+    }
     .page.open{
       transform:rotateY(-2deg)translateZ(.1em);
     }
     .page.open ~ .page{
       transform:rotateY(-1deg)translateZ(.1em);
     }
-    .page:not(.open){
-      transform:rotateY(-179deg)translateZ(-.1em); 
-    }
+
     
     @media screen and (max-width:28em){
       .book{
