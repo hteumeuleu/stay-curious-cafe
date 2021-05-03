@@ -6,6 +6,42 @@ Examples and notes for Mark and Rémi's talks at Stay Curious Café on May, 5th 
 
 Looking at how a single email can purposefully render differently across email platforms, showing we’re not stuck in the 90’s anymore.
 
+### Introduction
+
+* [A Single Email](https://useparcel.com/e/bc910fb8-b746-4a3c-9fd7-397ec83f387f) by Mark and Rémi
+* An email is not just HTML and CSS. It’s a MIME format that contains a common header (with fields like _From_ and _Date_) and a message body that can be in plain text, HTML or even AMP.
+
+### Accessibility
+
+* Demo of a plain text email in Thunderbird
+* Demo of an HTML email in Thunderbird
+
+### Responsive and Interactive
+
+* Emails are not stuck in the 1990s
+* Demo of an interactive and responsive email in Yahoo’s desktop webmail
+* Some things like media queries can become tricky because it targets the window's viewport, not the webmail's email viewport.
+
+### Grid Layout
+
+* Demo of a CSS Grid Layout in Apple Mail
+
+### Dark Mode
+
+* Demo of an email adjusted by Outlook.com’s dark mode
+* We can add dark mode using `@media (prefers-color-scheme:dark)`…
+* …But we get the same kind of conundrum than with responsive media queries. We can target Outlook.com using `[data-ogsb]` selectors.
+
+### AMP
+
+* Demo of an AMP email in Gmail’s desktop webmail
+
+### Links
+
+* [Parcel](https://useparcel.com)
+* [Can I email](https://www.caniemail.com)
+* [HowToTarget.email](https://howtotarget.email)
+
 ---
 
 ## Session 2: Experimental Email
