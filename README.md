@@ -61,6 +61,6 @@ Looking at how we can push email clients to their limits creating visual artwork
 
 * [CSS Art Collection on CodePen](https://codepen.io/collection/XmpLYx) by Mark Robbins
 * [Pure CSS Avocados](https://codepen.io/juliepark/pen/dBXXNZ) by Julie Park
-* [Mona Lisa in VML](https://gist.github.com/hteumeuleu/3818eded96f066d7b48a83c732c89156) via [svg-vml.net](https://web.archive.org/web/20100302191425/http://www.svg-vml.net/Joconde.htm)
 * [Live Coding a CSS Avocado](https://useparcel.com/e/5939d7e3-02ac-450e-af73-5988aeb818a6)
+* [Mona Lisa in VML](https://gist.github.com/hteumeuleu/74cacb32a132196ca30aed1004a51852) via [svg-vml.net](https://web.archive.org/web/20100302191425/http://www.svg-vml.net/Joconde.htm)
 * [CSS Bullet Points in Bulletin Email](https://reallygoodemails.com/emails/-welcome-to-bulletin)
