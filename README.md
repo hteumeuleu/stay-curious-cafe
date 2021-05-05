@@ -64,3 +64,13 @@ Looking at how we can push email clients to their limits creating visual artwork
 * [Live Coding a CSS Avocado](https://useparcel.com/e/5939d7e3-02ac-450e-af73-5988aeb818a6)
 * [Mona Lisa in VML](https://gist.github.com/hteumeuleu/74cacb32a132196ca30aed1004a51852) via [svg-vml.net](https://web.archive.org/web/20100302191425/http://www.svg-vml.net/Joconde.htm)
 * [CSS Bullet Points in Bulletin Email](https://reallygoodemails.com/emails/-welcome-to-bulletin)
+
+### CSS Games
+
+* [CSS Games Collection on CodePen](https://codepen.io/collection/DcxjF)
+* [Building the game demo](https://codepen.io/M_J_Robbins/pen/MWJMKYK)
+* [CSS ThWack-a-Vole](https://codepen.io/M_J_Robbins/pen/jpCKH)
+* [CSS Slider Puzzle](https://codepen.io/M_J_Robbins/pen/VeNWQQ)
+* [CSS 3D X-Wing](https://codepen.io/M_J_Robbins/pen/XjEQyO)
+* [web bassed 3D CSS editor](http://tridiv.com/) by Julian Garnier (where the X-wing code came from)
+* [CSS Wolfenstein 3D](https://codepen.io/M_J_Robbins/pen/XpQZOG)
